@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/home.css}" />
+<link rel="stylesheet" th:href="@{/css/doanhthu.css}" />
+<script type="text/javascript" th:src="@{/js/home.js}"></script>
+</head>
+
+<body>
+	<div class="page">
+		<th:block th:include="/admin/navAdmin"></th:block>
+		<div class="container-fluid content">
+			<div class="row ">
+				<div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-3 menu">
+					<th:block th:include="/admin/menuAdmin"></th:block>
+				</div>
+				<div class="col-12 col-sm-12 col-md-6 col-lg-10 col-xl-9 ">
+					<div class=" d-flex justify-content-center wrapper">
+						<div class="container-fluid ">
+							<div class="mb-5">
+								<h3 class="d-flex justify-content-center">Doanh thu</h3>
+							</div>
+							<form th:action="@{/admin/revenue/statistics}" method="post"
+								th:object="${condition}" class="mb-5 form-statistics">
+								<div class="row m-0 ml-5">
+
+									<select th:field="*{time}" class="item " style="border: 2px solid black; border-radius: 10px;">
+										<option th:text="'Theo ngày'" th:value="'Theo ngày'"
+											selected="selected">
+										<option th:text="'Theo tháng'" th:value="'Theo tháng'">
+										<option th:text="'Theo năm'" th:value="'Theo năm'">
+									</select>
+
+
+									<button type="submit"
+										class="btn btn-success ml-4 p-0 button-submit">Xem
+										kết quả</button>
+								</div>
+							</form>
+
+							<table class="table table-bordered ">
+								<thead class="thead-dark h6">
+									<th>Thời gian</th>
+									<th>Doanh số</th>
+									<th>Lợi nhuận</th>
+
+								</thead>
+								<tbody>
+
+									<tr th:each="revenue : ${revenueList}">
+										<td th:text="${revenue.date}">
+										<td th:text="${revenue.revenue}">
+										<td th:text="${revenue.profit}">
+											<!-- <td th:text="${order.total}">
+										<td><a class="btn btn-border bg-info"
+											th:href="@{'/admin/orderDetail'+${order.id}}"> <i
+												class="fas fa-pen"></i></a></td> -->
+									</tr>
+
+
+								</tbody>
+
+							</table>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+
+		</div>
+		<th:block th:include="/user/footer"></th:block>
+	</div>
+</body>
+
+</html>

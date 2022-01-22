@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/home.css}" />
+<link rel="stylesheet" th:href="@{/css/body.css}" />
+<script type="text/javascript" th:src="@{/js/home.js}"></script>
+</head>
+
+<body>
+	<div class="page">
+		<th:block th:include="user/nav_user"></th:block>
+
+		<div id="demo" class="carousel slide container hinhnen bg-info"
+			data-ride="carousel">
+
+			<ul class="carousel-indicators">
+				<li data-target="#demo" data-slide-to="0" class="active"></li>
+				<li data-target="#demo" data-slide-to="1"></li>
+				<li data-target="#demo" data-slide-to="2"></li>
+			</ul>
+
+
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="/images/thuviensach1.jpg">
+				</div>
+				<div class="carousel-item">
+					<img src="/images/thuviensach2.jpg">
+				</div>
+				<div class="carousel-item">
+					<img src="/images/thuviensach3.jpg">
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev" href="#demo" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+		<!-- <th:block th:include="user/search"></th:block> -->
+		<div class="container mt-5 mb-5">
+			<div class="">
+				<div class="">
+					<label th:text="'Giới thiệu'" class="h3 text-danger"></label>
+				</div>
+				<div>
+					<label class="into-text"
+						th:text="'Từ lâu thư viện đã được coi là “kho vàng” của nền văn hóa dân tộc, là một bộ phận không thể thiếu trong văn hóa học đường. Thư viện bổ sung và cập nhật những kiến thức mới, những phương pháp giảng dạy tiên tiến làm cho việc học tập và giảng dạy thêm sinh động và hấp dẫn. Thư viện là trung tâm thông tin ở nhiều dạng khác nhau, tạo điều kiện cho người sử dụng tiếp cận nhanh chóng đến tri thức. Đúng vậy, đọc sách là cách học tốt nhất và không có cách giải trí nào rẻ hơn đọc sách, cũng không có sự thú vị nào bền lâu hơn việc đọc sách. Đọc sách ngoài tác dụng giải trí lành mạnh còn giúp mỗi chúng ta hoàn thiện nhân cách của chính mình. Sách giáo dục cho mỗi chúng ta biết yêu thương, quý trọng, đoàn kết với mọi người, biết nói lời hay, làm việc tốt. Và sách chính là cơ hội để chúng ta mở rộng tầm nhìn với thế giới.'"></label>
+					<label
+						th:text="'Nhìn lại chặng đường đã qua, thư viện nhà trường đã thay đổi gần như toàn diện. Trước khi trường được xây dựng lại, thư viện chỉ là một phòng đọc nhỏ chia làm đôi: 2/3 diện tích dành cho hoạt động đọc, còn lại 1/3 diện tích phòng dùng làm kho sách chung cho toàn bộ các sách từ sách giáo khoa, sách tham khảo, sách nghiệp vụ đến các loại sách đạo đức,… mang tính chất 1 kho sách đóng, mọi hoạt động tìm sách, chọn sách của GV, HS đều phải thông qua thủ thư. Do đó lượt bạn đọc đến thư viện hàng ngày, hàng tuần rất ít ỏi bởi bạn đọc không hiểu hết được tình hình kho sách để có hướng lựa chọn cho mình…'"
+						class="into-text"></label>
+				</div>
+			</div>
+			<div></div>
+		</div>
+		<div class="container mt-5 mb-5">
+			<div class="">
+				<label th:text="'Hình ảnh'" class="h3 text-danger"></label>
+			</div>
+			<div class="row">
+				<img src="/images/image001.jpg" class="col-4"> <img
+					src="/images/image002.jpg" class="col-4"> <img
+					src="/images/image003.jpg" class="col-4">
+
+			</div>
+			<div class="row mt-2">
+				<img src="/images/image004.jpg" class="col-4"> <img
+					src="/images/image005.jpg" class="col-4"> <img
+					src="/images/image006.jpg" class="col-4">
+
+			</div>
+
+		</div>
+		<div class="container mt-5 mb-5">
+			<div class="">
+				<label th:text="'Quy định thuê sách'" class="h3 text-danger"></label>
+			</div>
+			<div class="row">
+				<img src="/images/image001.jpg" class="col-4"> <img
+					src="/images/image002.jpg" class="col-4"> <img
+					src="/images/image003.jpg" class="col-4">
+
+			</div>
+			<div class="row mt-2">
+				<img src="/images/image004.jpg" class="col-4"> <img
+					src="/images/image005.jpg" class="col-4"> <img
+					src="/images/image006.jpg" class="col-4">
+
+			</div>
+
+		</div>
+
+		<div class="row  justify-content-center">
+			<div class="col-md-10 text-black ">
+				<p style="text-align: center; font-weight: 500">
+					<strong>NỘI QUY THƯ TAM KÌ</strong>
+				</p>
+
+				<p>
+					<strong>Điều 1</strong>. Bạn đọc Thư viện là người đã đăng ký
+					“Phiếu đăng ký bạn đọc” của Thư viện TAM KÌ.
+				</p>
+
+				<p>
+					<strong>Điều 2</strong>. Bạn đọc khi vào Thư viện cần tuân thủ các
+					quy định sau:
+				</p>
+				<p>2.1. Quy định chung:</p>
+				<ul>
+					<li>Giữ trật tự, vệ sinh trong Thư viện.</li>
+					<li>Không mang cặp, túi, balô vào Thư viện</li>
+					<li>Không mang thức ăn, nước (chỉ được mang nước lọc) vào Thư
+						viện</li>
+				</ul>
+				<p>2.2. Bạn đọc được mượn tài liệu đọc tại chỗ (kho tự chọn),
+					đọc xong để lại vị trí cũ hoặc để đúng nơi quy định.</p>
+				<p>2.3. Bạn đọc được cấp mã người dùng để tải tài liệu của Thư
+					viện cho mục đích học tập và nghiên cứu.</p>
+				<p>2.4. Việc mượn tài liệu đem về được thực hiện theo quy định
+					sau:</p>
+				<ul>
+					<li>Bước 1: Bạn đọc tự chọn tài liệu trong kho.</li>
+					<li>Bước 2: Xuất trình thẻ: học viên, sinh viên, nhân viên,
+						giảng viên khi mượn.</li>
+					<li>Bước 3: Làm thủ tục mượn/trả tài liệu tại quầy. Số lượng
+						được mượn: 5 tài liệu/lần (trả xong, mới được mượn tiếp). Hạn mượn
+						tài liệu: 30 ngày.</li>
+				</ul>
+				<p>
+					<em><u>Lưu ý khi mượn</u></em><em>: Bạn đọc không sử dụng thẻ
+						của người khác, kiểm tra tình trạng tài liệu trước khi mượn và hạn
+						trả tài liệu. Bạn đọc được phép mượn lại (nếu không trễ hạn) và
+						phải mang tài liệu đến Thư viện để làm thủ tục mượn.</em>
+				</p>
+				<p>2.5. Tài liệu phải được nhân viên Thư viện kiểm tra trước khi
+					mang ra khỏi Thư viện.</p>
+				<p>2.6. Tài liệu trễ hạn được thực hiện theo Thông báo về việc
+					“Xử lý tài liệu trễ hạn của Thư viện”</p>
+				<p>2.7. Nếu bạn đọc làm thất lạc, gây hư hỏng tài liệu (cắt xén,
+					làm rách, ghi dấu…) hoặc</p>
+				<p>trang thiết bị của Thư viện phải chịu trách nhiệm bồi thường
+					(bao gồm chi phí phục hồi, tái tạo hoặc đền mới).</p>
+				<p>
+					<strong>Điều 3</strong>. Nội quy này có hiệu lực từ ngày ký, thay
+					thế cho các nội quy đã ban hành trước đây.
+				</p>
+				<p style="text-align: right;">Giám đốc Thư viện</p>
+			</div>
+
+		</div>
+
+
+
+		<th:block th:include="/user/footer"></th:block>
+	</div>
+</body>
+
+</html>

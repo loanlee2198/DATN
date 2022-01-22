@@ -1,0 +1,16 @@
+html, body {
+	width: 100%;
+	height: 100%;
+}
+.form-filter div {
+	margin: 20px 30px 30px 30px;
+}
+
+.table th {
+	text-align: center;
+}
+.btn-submit{
+	height: 30px;
+	width: 120px ;
+	padding-bottom: 20px
+}

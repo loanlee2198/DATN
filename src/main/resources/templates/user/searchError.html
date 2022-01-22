@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/home.css}" />
+<link rel="stylesheet" th:href="@{/css/body.css}" />
+<script type="text/javascript" th:src="@{/js/home.js}"></script>
+</head>
+
+<body>
+	<div class="page">
+		<th:block th:include="user/nav_user"></th:block>
+
+		<div id="demo" class="carousel slide container hinhnen bg-info"
+			data-ride="carousel">
+
+			<ul class="carousel-indicators">
+				<li data-target="#demo" data-slide-to="0" class="active"></li>
+				<li data-target="#demo" data-slide-to="1"></li>
+				<li data-target="#demo" data-slide-to="2"></li>
+			</ul>
+
+
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="/images/thuysan.gif">
+				</div>
+				<div class="carousel-item">
+					<img src="/images/thuhoach.jpg">
+				</div>
+				<div class="carousel-item">
+					<img src="/images/thuhoach2.jpg">
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev" href="#demo" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+
+		<div class="d-flex justify-content-center  mt-5 mb-5">
+			<div>
+				<label class="h5"
+					th:text="'Để tìm được kết quả chính xác hơn, bạn vui lòng:'"></label>
+				<ul>
+					<li class="h6"
+						th:text="'Kiểm tra lỗi chính tả của từ khóa đã nhập'"></li>
+					<li class="h6" th:text="'Thử lại bằng những từ khóa tổng quát hơn'"></li>
+					<li class="h6" th:text="'Thử lại bằng những từ khóa ngắn gọn hơn'"></li>
+					<li class="h6" th:text="'Thử lại bằng từ khóa khác'"></li>
+				</ul>
+			</div>
+		</div>
+
+
+		<th:block th:include="/user/footer"></th:block>
+	</div>
+</body>
+
+</html>

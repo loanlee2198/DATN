@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+	integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+	crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/register.css}" />
+<link rel="stylesheet" th:href="@{/css/nav.css}" />
+</head>
+<body>
+	<nav
+		class="navbar navbar-expand-lg text-dark  navbar-dark fixed-top nav">
+
+		<a class="navbar-brand" th:href="@{/home}"> <img
+			src="/images/thuviensach.jpg" alt="logo" class="logo">
+		</a>
+		<button class="navbar-toggler " type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="true"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon bg-dark"></span>
+		</button>
+		<div class="navbar-collapse collapse dont-collapse-sm row"
+			style="margin-left: 20px; display: inline;"
+			id="navbarSupportedContent">
+
+			<!-- <ul class="navbar-nav mt-2 mt-lg-0 " th:each="type : ${types}">
+
+				<li class="nav-item menu-item"><a class="nav-link text-dark "
+					th:href="@{'/type'+*{type.id}}" th:text="*{type.name}"></a></li>
+
+			</ul> -->
+			<div class=" ">
+				<a class="text-decoration-none menu h5" th:href="@{/introduce}"
+					th:text="'Giới thiệu'"></a>
+			</div>
+			<div class="nav-item dropdown show">
+				<a class="nav-link text-decoration-none menu h5 pb-0" href=""
+					id="navbardrop" data-toggle="dropdown"> Thể loại sách </a>
+				<div class="dropdown-menu">
+					<a class="nav-link text-dark " th:each="type : ${types}"
+						th:href="@{'/type'+*{type.id}}" th:text="*{type.name}"></a>
+				</div>
+			</div>
+			<div class="mr-4">
+				<a class="text-decoration-none menu h5" th:href="@{/introduce}"
+					th:text="'Hướng dẫn mượn sách'"></a>
+			</div>
+			<div class=" ">
+				<a class="text-decoration-none menu h5" th:href="@{/introduce}"
+					th:text="'Dịch vụ'"></a>
+			</div>
+		</div>
+		<th:block th:include="user/search"></th:block>
+
+		<div class="header_cart">
+			<div class="header_cart-wrap">
+				<a th:href="@{/cart}"> <!-- <i
+					class="header_cart-icon fas fa-shopping-cart"></i> --> <i
+					class=" header_cart-icon fas fa-book"></i>
+				</a> <span class="header_cart-notice">3</span>
+			</div>
+		</div>
+
+		<div class="d-flex justify-content-end">
+			<!-- <!-- ${/personalInformation} -->
+
+			<div th:if="${!session.isEmpty()}">
+				<a th:href="@{/personalInformation}">
+					<button type="submit" class="welcome font-weight-bold"
+						th:text="'Chào '+ ${session.username}"></button>
+				</a>
+			</div>
+			<div>
+				<a th:href="${session.isEmpty()} ? @{/login} : @{/logout}">
+					<button type="submit" class="btn_login"
+						th:text="${session.isEmpty()} ? 'Đăng nhập' :'Đăng xuất'"></button>
+				</a>
+			</div>
+		</div>
+
+	</nav>
+</body>
+</html>

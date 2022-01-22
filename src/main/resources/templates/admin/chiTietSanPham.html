@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/home.css}" />
+<link rel="stylesheet" th:href="@{/css/bookDetail.css}" />
+
+
+<script language="javascript">
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+
+			reader.onload = function(e) {
+				$('#bookImage').attr('src', e.target.result);
+			};
+
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div class="page">
+		<th:block th:include="/admin/navAdmin"></th:block>
+		<div class="container-fluid content">
+			<div class="row ">
+				<div class="col-12 col-sm-12 col-md-6 col-lg-2 col-xl-3 menu">
+					<th:block th:include="/admin/menuAdmin"></th:block>
+				</div>
+				<div class="col-12 col-sm-12 col-md-6 col-lg-10 col-xl-9 " style="background:black;height: max-content;">
+					<div class="container-fluid d-flex justify-content-center" style="background: linear-gradient(to right, #33ccff 0%, #ff99cc 100%);">
+						<form th:action="@{'/admin/bookDetail'+*{id}}"
+							class="book_detail_form " th:object="${book}" method="post">
+							<label class="h3 mt-3 ml-3" th:text="'Thông tin chi tiết :'"></label>
+							<table class="container-fluid">
+								<tr class=" mt-5">
+									<td class="h6 ml-3" th:text="''"></td>
+									<td><img id="bookImage" th:src="@{'/images/'+*{image}}">
+										<input class="upload-image" id="image"
+										onchange="readURL(this);" type="file"
+										accept="image/jpeg, image/png" th:field="*{image}"></td>
+								</tr>
+								<tr class="">
+									<td class="h6 ml-3" th:text="'Tên sách'"></td>
+									<td><input id="name" th:field="*{name}"></td>
+								</tr>
+								<tr class="">
+									<td class="h6 ml-3" th:text="'Thể loại'"></td>
+									<td><input id="typeId" th:field="*{typeId}"></td>
+								</tr>
+								<tr class="">
+									<td class="h6 ml-3" th:text="'Tác giả'"></td>
+									<td><input id="author" th:field="*{author}"></td>
+								</tr>
+								<tr class="">
+									<td class="h6 ml-3" th:text="'Giá sách'"></td>
+									<td><input id="price" th:field="*{price}"></td>
+								</tr>
+								<!-- <tr class="">
+									<td class="h6 ml-3" th:text="'Giá bán'"></td>
+									<td><input id="price" th:field="*{price}"></td>
+								</tr>
+								<tr class="">
+									<td class="h6 ml-3" th:text="'Số lượng'"></td>
+									<td><input id="amount" th:field="*{amount}"></td>
+								</tr>
+								<tr class="">
+									<td class="h6 ml-3" th:text="'Khuyến mãi'"></td>
+									<td><input id="promotion" th:field="*{promotion}"></td>
+								</tr> -->
+
+								<tr class="">
+									<td class="h6 ml-3" th:text="'Giới thiệu về sách'"></td>
+									<td><textarea name="des" rows="5" cols="10"
+											th:field="*{des}"></textarea></td>
+								</tr>
+
+							</table>
+							<div class="form-group d-flex justify-content-center">
+								<button type="submit" class="btn btn-success" name="update"
+									style="margin-right: 30px">Lưu</button>
+								<button type="submit" class="btn btn-success" name="exit">Thoát</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+
+
+
+		</div>
+		<th:block th:include="/user/footer"></th:block>
+	</div>
+</body>
+
+</html>

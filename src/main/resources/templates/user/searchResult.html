@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+<link rel="stylesheet" th:href="@{/css/body.css}" />
+<link rel="stylesheet" th:href="@{/css/home.css}" />
+<link rel="stylesheet" th:href="@{/css/nav.css}" />
+</head>
+
+<body>
+	<div class="page">
+		<th:block th:include="user/nav_user"></th:block>
+
+
+		<div id="demo" class="carousel slide container hinhnen"
+			data-ride="carousel">
+
+			<ul class="carousel-indicators">
+				<li data-target="#demo" data-slide-to="0" class="active"></li>
+				<li data-target="#demo" data-slide-to="1"></li>
+				<li data-target="#demo" data-slide-to="2"></li>
+			</ul>
+
+
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="/images/thuviensach1.jpg" width="100%" height="500">
+				</div>
+				<div class="carousel-item">
+					<img src="/images/thuviensach2.jpg" width="100%" height="500">
+				</div>
+				<div class="carousel-item">
+					<img src="/images/thuviensach3.jpg" width="100%" height="500">
+				</div>
+			</div>
+
+			<!-- Left and right controls -->
+			<a class="carousel-control-prev" href="#demo" data-slide="prev">
+				<span class="carousel-control-prev-icon"></span>
+			</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+				<span class="carousel-control-next-icon"></span>
+			</a>
+		</div>
+		<!-- <div class="container d-flex justify-content-end m-3">
+			<div class="">
+				<form th:action="@{/search}" method="get">
+					<div class=" row">
+						<div class="mr-2">
+							<input name="key" class="form-control " required
+								th:value="*{keyword}" />
+						</div>
+						<button type="submit" class="btn btn-success">Tìm kiếm</button>
+					</div>
+				</form>
+			</div>
+		</div> -->
+
+	</div>
+
+	<div class="container justify-content-center">
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-3 p-3 book"
+				th:each=" book : ${books}">
+				<div class="d-flex flex-column p-4">
+					<a th:href="@{'/detail/'+*{book.id}}" class="d-flex justify-content-center"> <img
+						onmouseover="bigImg(this)" onmouseout="normalImg(this)"
+						class="bookImg" th:src="@{'/images/'+*{book.image}}">
+
+					</a> <a
+						class="h5 text-decoration-none d-flex justify-content-center text-center"
+						th:text="*{book.name}" th:href="@{'/detail/'+*{book.id}}"></a>
+
+					<p class="row justify-content-center" th:text="${book.price}"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<th:block th:include="/user/footer"></th:block>
+	</div>
+</body>
+
+</html>

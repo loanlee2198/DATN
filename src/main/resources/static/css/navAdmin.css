@@ -1,0 +1,20 @@
+.logo {
+	width: 270x;
+	height: 120px
+}
+
+.welcome {
+	color: black;
+}
+
+.btn_login {
+	color: black;
+	border: 0;
+	background: rgba(0, 0, 0, 0);
+	width: 150px;
+	height: 30px;
+	text-decoration: none;
+}
+.navbar{
+	background:white;
+}
